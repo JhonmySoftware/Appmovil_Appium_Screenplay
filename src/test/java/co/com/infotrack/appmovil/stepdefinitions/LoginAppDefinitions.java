@@ -24,9 +24,7 @@ public class LoginAppDefinitions {
 
     @Cuando("^Se logue con el usuario y contrasenia asignado$")
     public void seLogueConElUsuarioYContraseniaAsignado() {
-        String filePath = "src\\test\\resources\\data\\testData.xls";
-        Login loginTask = Login.withExcelFile(filePath);
-        OnStage.theActorCalled("jhon").attemptsTo(loginTask);
+        OnStage.theActorCalled("jhon").attemptsTo(Login.withExcelFile());
     }
 
 

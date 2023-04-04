@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Autenticacion en la aplicacion Wordpress" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-04T18:58:42" hostname="LTBG60836" time="45.484">
+<testsuite name="Autenticacion en la aplicacion Wordpress" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-04T20:17:41" hostname="LTBG60836" time="35.033">
   <properties/>
-  <testcase name="Autenticacion en la app Wordpress" classname="Autenticacion en la aplicacion Wordpress" time="45.484"/>
+  <testcase name="Autenticacion en la app Wordpress" classname="Autenticacion en la aplicacion Wordpress" time="35.033"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[abr 04, 2023 1:59:06 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+  <system-err><![CDATA[abr 04, 2023 3:18:01 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFORMACIÓN: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  

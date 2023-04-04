@@ -1,6 +1,5 @@
 package co.com.infotrack.appmovil.tasks;
 
-import co.com.infotrack.appmovil.models.ModelsLogin;
 import co.com.infotrack.appmovil.userinterfaces.ApplicationHomepage;
 import co.com.infotrack.appmovil.utils.ExcelReader;
 import net.serenitybdd.screenplay.Actor;
@@ -15,28 +14,24 @@ import java.util.Map;
 
 public class Login implements Task {
 
-    private final String filePath;
+    private static final String SHEET_NAME = "testData";
+    private static final String DEFAULT_FILE_PATH = "src\\test\\resources\\data\\testData.xls";
+    private final List<Map<String, String>> testData;
 
     public Login(String filePath) {
-        this.filePath = filePath;
+        try {
+            this.testData = ExcelReader.readExcel(filePath, SHEET_NAME);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static Login withExcelFile(String filePath) {
-        return Tasks.instrumented(Login.class, filePath);
+    public static Login withExcelFile() {
+        return Tasks.instrumented(Login.class, DEFAULT_FILE_PATH);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        ModelsLogin.setSheetName("testData");
-
-        String sheetName = "testData";
-        List<Map<String, String>> testData;
-        try {
-            testData = ExcelReader.readExcel(filePath, sheetName);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         String emailAddress = testData.get(0).get("Correo");
         actor.attemptsTo(
                 Click.on(ApplicationHomepage.SignUP),
@@ -46,5 +41,14 @@ public class Login implements Task {
         );
     }
 
+    public List<Map<String, String>> getTestData() {
+        return testData;
+    }
+
+    // crear instancias de la clase Login con diferentes rutas
+    // de archivo, pasando la ruta deseada al constructor, como se muestra a continuación:
+    // Login loginTask = new Login("src\\test\\resources\\data\\testData.xls");
+
 }
+
 
